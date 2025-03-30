@@ -1,0 +1,35 @@
+CC=gcc
+CFLAGS=-Wall -ansi
+LDFLAGS=-Wall -ansi
+EXEC=PROJECT
+
+all: $(EXEC)
+
+PROJECT: PROJECT.o Delete.o Append.o Print.o Research.o Sort.o Structures.o
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+PROJECT.o: PROJECT.c
+	$(CC) -c $^ $(CFLAGS)
+
+Delete.o: Delete.h Delete.c
+	$(CC) -c $^ $(CFLAGS)
+
+Append.o: Append.h Append.c    
+	$(CC) -c $^ $(CFLAGS)
+
+Print.o: Print.h Print.c
+	$(CC) -c $^ $(CFLAGS)
+
+Research.o: Research.h Research.c
+	$(CC) -c $^ $(CFLAGS)
+
+Sort.o: Sort.h Sort.c
+	$(CC) -c $^ $(CFLAGS)
+
+Structures.o: Structures.h Structures.c
+	$(CC) -c $^ $(CFLAGS)
+
+
+clean:
+	rm -rf *.o
+	rm -rf $(EXEC)
